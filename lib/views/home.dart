@@ -138,7 +138,8 @@ class HomeState extends State<Home> {
         }
     }
 
-    addNewPlayer(Player player) {
+    addNewPlayer(String subject) {
+        Player player = new Player(subject);
         database.reference().child('player').push().set(player.toJson());
     }
 
@@ -184,7 +185,7 @@ class HomeState extends State<Home> {
                         new FlatButton(
                             child: const Text('Save'),
                             onPressed: () {
-                                // addNewPlayer(textEditingController.text.toString());
+                                addNewPlayer(textEditingController.text.toString());
                                 Navigator.pop(context);
                             },
                         )
@@ -202,9 +203,6 @@ class HomeState extends State<Home> {
                 itemBuilder: (BuildContext context, int index) {
                     String player_key = players[index].key;
                     String name = players[index].name;
-                    String last_name = players[index].last_name;
-                    String user_id = players[index].user_id;
-                    int level = players[index].level;
 
                     return Dismissible(
                         key: Key(player_key),
