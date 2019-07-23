@@ -151,7 +151,7 @@ class LoginSignUpState extends State<LoginSignUp> {
 
     Widget showBody(){
         return new Container(
-            padding: EdgeInsets.all(16.0),
+            margin: EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 0.0),
             child: new Form(
                 key: formKey,
                 child: new ListView(
@@ -196,7 +196,7 @@ class LoginSignUpState extends State<LoginSignUp> {
 
     Widget showEmailInput() {
         return Padding(
-            padding: const EdgeInsets.fromLTRB(0.0, 100.0, 0.0, 0.0),
+            padding: const EdgeInsets.fromLTRB(25.0, 50.0, 25.0, 0.0),
             child: new TextFormField(
                 maxLines: 1,
                 keyboardType: TextInputType.emailAddress,
@@ -223,7 +223,7 @@ class LoginSignUpState extends State<LoginSignUp> {
 
     Widget showPasswordInput() {
         return Padding(
-            padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 0.0),
+            padding: const EdgeInsets.fromLTRB(25.0, 15.0, 25.0, 0.0),
             child: new TextFormField(
                 maxLines: 1,
                 obscureText: true,
@@ -264,11 +264,11 @@ class LoginSignUpState extends State<LoginSignUp> {
 
     Widget showPrimaryButton() {
         return new Padding(
-            padding: EdgeInsets.fromLTRB(0.0, 45.0, 0.0, 0.0),
+            padding: EdgeInsets.fromLTRB(50.0, 45.0, 50.0, 15.0),
             child: SizedBox(
-                height: 40.0,
+                height: 50.0,
                 child: new RaisedButton(
-                    elevation: 5.0,
+                    elevation: 10.0,
                     shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
                     color: Colors.blue,
                     child: formMode == FormMode.LOGIN
