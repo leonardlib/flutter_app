@@ -42,8 +42,15 @@ class HomeState extends State<Home> {
             .orderByChild('user_id')
             .equalTo(widget.user_id);
 
+        getAllPlayers();
         on_player_added_subscription = player_query.onChildAdded.listen(onPlayerAdded);
         on_player_changed_subscription = player_query.onChildChanged.listen(onPlayerChanged);
+    }
+
+    void getAllPlayers() {
+        player_query.once().then((DataSnapshot snapshot) {
+            print('Data: ${snapshot.value}');
+        });
     }
 
     void checkEmailVerification() async {
@@ -139,7 +146,7 @@ class HomeState extends State<Home> {
     }
 
     addNewPlayer(String subject) {
-        Player player = new Player(subject);
+        Player player = new Player(subject, widget.user_id);
         database.reference().child('player').push().set(player.toJson());
     }
 
@@ -234,7 +241,7 @@ class HomeState extends State<Home> {
     Widget build(BuildContext context) {
         return new Scaffold(
             appBar: new AppBar(
-                title: new Text('Flutter login demo'),
+                title: new Text('Players'),
                 actions: <Widget>[
                     new FlatButton(
                         child: new Text(

@@ -7,7 +7,7 @@ class Player {
     String user_id;
     int level;
 
-    Player(this.name);
+    Player(this.name, this.user_id);
 
     Player.fromSnapshot(DataSnapshot snapshot) :
         key = snapshot.key,

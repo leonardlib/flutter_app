@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
             theme: new ThemeData(
                 primarySwatch: Colors.blue
             ),
-            home: new Root(auth_service: new Auth()),
+            home: new Root(auth_service: new Auth())
         );
     }
 }
